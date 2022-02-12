@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toku/models/item_model.dart';
-import 'package:toku/views/widgets/colors_details.dart';
+import 'package:toku/views/widgets/item_details.dart';
 
 class ColorsScreen extends StatelessWidget {
   static const routeName = 'ColorsScreen';
@@ -64,8 +64,10 @@ class ColorsScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: colors.length,
         itemBuilder: (context, index) {
-          return ColorsItem(
+          return ItemDetails(
             colors[index],
+            'assets/sounds/colors/',
+            Color(0xff7E3FA3),
           );
         },
       ),

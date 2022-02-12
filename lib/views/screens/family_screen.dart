@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toku/models/item_model.dart';
-import 'package:toku/views/widgets/family_details.dart';
+import 'package:toku/views/widgets/item_details.dart';
 
 class FamilyScreen extends StatelessWidget {
   static const routeName = 'FamilyScreen';
@@ -76,7 +76,11 @@ class FamilyScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: famList.length,
         itemBuilder: (context, index) {
-          return FamilyItem(famList[index]);
+          return ItemDetails(
+            famList[index],
+            'assets/sounds/family_members/',
+            Color(0xff538033),
+          );
         },
       ),
     );

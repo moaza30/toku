@@ -2,19 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:toku/models/item_model.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-class PhrasesItem extends StatelessWidget {
-  final Item number;
+class ItemDetails extends StatelessWidget {
+  final Item item;
+  late String path;
+  Color color;
+  ItemDetails(this.item, this.path, this.color);
 
-  PhrasesItem(this.number);
+  void playSound(String path) {
+    try {
+      AudioCache player = AudioCache(prefix: path);
+      player.play(item.sound!);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff48A5CC),
+      color: color,
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
+          Container(
+            color: const Color(0xffFEF6DB),
+            child: (path == 'assets/sounds/phrases/')
+                ? null
+                : Image.asset(item.image!),
+          ),
           Expanded(
             flex: 2,
             child: Padding(
@@ -24,11 +40,11 @@ class PhrasesItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    number.jpName!,
+                    item.jpName!,
                     style: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Text(
-                    number.enName!,
+                    item.enName!,
                     style: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ],
@@ -39,13 +55,7 @@ class PhrasesItem extends StatelessWidget {
             padding: const EdgeInsets.only(right: 20),
             child: IconButton(
               onPressed: () {
-                try {
-                  AudioCache player =
-                      AudioCache(prefix: 'assets/sounds/phrases/');
-                  player.play(number.sound!);
-                } catch (e) {
-                  print(e);
-                }
+                playSound(path);
               },
               icon: const Icon(
                 Icons.play_arrow,

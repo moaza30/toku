@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toku/models/item_model.dart';
-import 'package:toku/views/widgets/number_details.dart';
-import 'package:toku/views/widgets/phrases_details.dart';
+import 'package:toku/views/widgets/item_details.dart';
 
 class PhrasesScreen extends StatelessWidget {
   static const routeName = 'PhrasesScreen';
@@ -112,7 +111,11 @@ class PhrasesScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: numList.length,
         itemBuilder: (context, index) {
-          return PhrasesItem(numList[index]);
+          return ItemDetails(
+            numList[index],
+            'assets/sounds/phrases/',
+            Color(0xff48A5CC),
+          );
         },
       ),
     );

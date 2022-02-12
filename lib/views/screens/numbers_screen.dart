@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toku/models/item_model.dart';
-import 'package:toku/views/widgets/number_details.dart';
+import 'package:toku/views/widgets/item_details.dart';
 
 class NumberScreen extends StatelessWidget {
   static const routeName = 'NumberScreen';
@@ -76,7 +76,11 @@ class NumberScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: numList.length,
         itemBuilder: (context, index) {
-          return NumbersItem(numList[index]);
+          return ItemDetails(
+            numList[index],
+            'assets/sounds/numbers/',
+            Color(0xffEF9235),
+          );
         },
       ),
     );
