@@ -57,7 +57,7 @@ class PhrasesScreen extends StatelessWidget {
     ),
     Item(
       enName: 'The check, please',
-      jpName: 'Okanjō onegai shimasu  お勘定お願いします',
+      jpName: 'Okanjō onegai shimasu\nお勘定お願いします',
       sound: 'the_check.mp3',
     ),
     Item(
@@ -77,7 +77,7 @@ class PhrasesScreen extends StatelessWidget {
     ),
     Item(
       enName: 'Where is the bathroom?',
-      jpName: 'Otearai wa doko desu ka?  お手洗いはどこですか',
+      jpName: 'Otearai wa doko desu ka?\nお手洗いはどこですか',
       sound: 'bathroom.mp3',
     ),
     Item(
@@ -87,8 +87,8 @@ class PhrasesScreen extends StatelessWidget {
     ),
     Item(
       enName: 'How are you feeling?',
-      jpName: 'Go kibun wa ikagadesu ka  ご気分はいかがですか',
-      sound: 'how_are_youe_feeling.wav',
+      jpName: 'Go kibun wa ikagadesu ka\nご気分はいかがですか',
+      sound: 'how_are_you_feeling.wav',
     ),
     Item(
       enName: 'What is your name?',
@@ -105,8 +105,15 @@ class PhrasesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Phrases'),
-        backgroundColor: Color(0xff64322B),
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        title: const Text(
+          'Phrases',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Color(0xffFFFFFF),
       ),
       body: ListView.builder(
         itemCount: numList.length,
@@ -114,7 +121,6 @@ class PhrasesScreen extends StatelessWidget {
           return ItemDetails(
             numList[index],
             'assets/sounds/phrases/',
-            Color(0xff48A5CC),
           );
         },
       ),

@@ -5,8 +5,8 @@ import 'package:audioplayers/audioplayers.dart';
 class ItemDetails extends StatelessWidget {
   final Item item;
   late String path;
-  Color color;
-  ItemDetails(this.item, this.path, this.color);
+
+  ItemDetails(this.item, this.path);
 
   void playSound(String path) {
     try {
@@ -20,13 +20,17 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: color,
+      margin: EdgeInsets.all(10),
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        color: Color(0xff2574FF),
+        borderRadius: BorderRadius.circular(25),
+      ),
       child: Row(
         children: [
           Container(
-            color: const Color(0xffFEF6DB),
+            //color: const Color(0xffFEF6DB),
             child: (path == 'assets/sounds/phrases/')
                 ? null
                 : Image.asset(item.image!),
@@ -41,11 +45,18 @@ class ItemDetails extends StatelessWidget {
                 children: [
                   Text(
                     item.jpName!,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
                   ),
-                  Text(
-                    item.enName!,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: Text(
+                      item.enName!,
+                      style: const TextStyle(
+                          color: Color(0xffCCCCD0), fontSize: 14),
+                    ),
                   ),
                 ],
               ),

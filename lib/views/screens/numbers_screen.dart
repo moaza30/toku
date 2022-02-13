@@ -70,8 +70,15 @@ class NumberScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Numbers'),
-        backgroundColor: Color(0xff64322B),
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        title: const Text(
+          'Numbers',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Color(0xffFFFFFF),
       ),
       body: ListView.builder(
         itemCount: numList.length,
@@ -79,7 +86,6 @@ class NumberScreen extends StatelessWidget {
           return ItemDetails(
             numList[index],
             'assets/sounds/numbers/',
-            Color(0xffEF9235),
           );
         },
       ),
