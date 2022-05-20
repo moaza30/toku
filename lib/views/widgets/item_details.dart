@@ -20,11 +20,11 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: Color(0xff2574FF),
+        color: const Color(0xff2574FF),
         borderRadius: BorderRadius.circular(25),
       ),
       child: Row(
