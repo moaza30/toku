@@ -10,12 +10,14 @@ class ItemDetails extends StatelessWidget {
 
   void playSound(String path) {
     try {
-      AudioCache player = AudioCache(prefix: path);
+      AudioCache player = AudioCache(prefix: path,);
       player.play(item.sound!);
     } catch (e) {
       print(e);
     }
   }
+
+  void stopSound() {}
 
   @override
   Widget build(BuildContext context) {
